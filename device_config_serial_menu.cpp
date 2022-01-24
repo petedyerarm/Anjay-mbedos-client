@@ -288,6 +288,13 @@ void show_menu_and_maybe_update_config(Lwm2mConfig &config) {
                                                    + cached_config.modem_config
                                                              .apn;
                       }),
+               SerialConfigMenuEntry(
+                      "Load default configuration",
+                      [&]() {
+                          cached_config = Lwm2mConfig();
+                          return SerialConfigMenuEntry::MenuLoopAction::
+                                  CONTINUE;
+                      }),
               SerialConfigMenuEntry(
                       "Exit & save changes",
                       [&]() {
